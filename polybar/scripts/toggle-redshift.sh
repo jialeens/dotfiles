@@ -2,8 +2,8 @@
 
 if pgrep -x redshift > /dev/null
 then
-	pgrep redshift | xargs -n1 kill -9 | notify-send 'Redshift stopped'
+	pkill redshift| notify-send 'Redshift stopped'
 else
+	redshift & 
 	notify-send 'Redshift started'
-	redshift &
 fi

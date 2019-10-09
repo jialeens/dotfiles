@@ -285,10 +285,10 @@ exec --no-startup-id ss-qt5
 exec --no-startup-id fcitx
 exec --no-startup-id conky
 exec --no-startup-id nm-applet
-exec --no-startup-id redshift
 exec --no-startup-id mate-power-manager
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy 
 exec --no-startup-id bash ~/.config/polybar/launch.sh
+exec --no-startup-id redshift &
 exec --no-startup-id dunst
 
 #---wallpaper---

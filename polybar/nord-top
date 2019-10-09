@@ -90,6 +90,7 @@ exec = ~/.config/polybar/scripts/get_focused_workspace_name.sh
 tail = true
 label-background = ${colors.urgent}
 label-padding = 3
+
 [module/date]
 type = internal/date
 interval = 1.0
@@ -193,18 +194,13 @@ ramp-volume-foreground = ${colors.nord7}
 label-volume-foreground = ${colors.nord8}
 
 [module/backlight]
-type = internal/xbacklight
-
-enable-scroll = true
-
-; Format
-format = <ramp> <label>
-
-ramp-0 = 
-
-label = %{A1:$HOME/.config/polybar/scripts/toggle-redshift.sh:}%percentage%%%{A}
-ramp-foreground = ${colors.nord4}
-label-foreground = ${colors.nord8}
+type = custom/script
+format-prefix = " RedShift:"
+interval = 1.0
+exec = if pgrep -x redshift > /dev/null; then  echo ON; else echo OFF; fi
+format-prefix-foreground = ${colors.success}
+label-foreground = ${colors.success}
+click-left = ~/.config/polybar/scripts/toggle-redshift.sh
 
 [module/mpd]
 type = internal/mpd
