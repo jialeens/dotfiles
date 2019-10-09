@@ -1,0 +1,246 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+	color2 = '777777',
+	cpu_avg_samples = 2,
+	default_color = 'FFFFFF',
+	double_buffer = true,
+	font = '等距更纱黑体 SC Medium:size=8',
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 250,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 2.0,
+	use_xft = true,
+	draw_shades=true,
+	draw_shades=true
+}
+conky.text = [[
+#
+#
+####################################################################
+##       让conky随系统自动启动                                    #####
+##      创建一个文件，起名conky.sh。用gedit打开。粘贴如下内容：        #####
+##                                                             #####
+##       代码:                                                  #####
+##       #!/bin/bash                                           #####
+##       sleep 20 && conky -c /home/用户名/.conkyrc             #####
+##                                                             #####
+##       保存退出。                                              #####
+##                                                             #####
+##       然后，系统-首选项-会话，在启动程序中点击“添加”，浏览定位到你刚才你创建到conky.sh文件，确定。这样，以后    #conky就会随你到系统一起启动了
+#   系统-首选项-启动应用程序，添加，名称conky，命令conky即可（我是这么做的，上面的方法不知什么问题我没能启动）
+#  但是终端执行sleep 20 && conky -c /home/用户名/.conkyrc又可以启动
+#
+#
+#
+#
+#
+#
+#
+#
+#....${监视目标 参数}
+#....${alignr}表示以该参数定义的元素向右对齐，${alignl}表示左对齐，${alignc}表示居中对齐....
+#需要注意的是，${}中定义的颜色和字体属性将一直影响到Conky配置文件的最后，即如果你在前面定义了第一行的颜色
+#为“white”，那么以后各行的颜色#都是白色。所以原则上你需要为每一行甚至每一行的各个元素设定颜色或者字体属性
+#字体属性的定义格式如下${font Monospace:style=Bold:size=10}三个字体属性中任何一个不设定则使用上面定义的默认值
+#
+#
+#
+#
+${color white}${font 微软雅黑:size=10}${alignc}System Information ${color}
+##############################################################################################
+#           输出当前用户   ${exec whoami}                 ####
+#############################################################
+#${exec whoami}
+#
+#
+#
+#
+#           日期           ###
+# ###########################                              
+#${color white}${font 文泉驿等宽微米黑:size=11}${time %b%d日 星期%a}${alignr}${time %p%l:%M:%S}
+#
+#
+#
+#
+#
+#
+#           系统名         ###
+##############################                                       
+${color white}${font Purisa:style=Bold:size=11}Name: ${font Purisa:style=Bold:size=10}$alignr$nodename
+#
+#
+#
+#           内核           ###
+#############################                                  
+${color white}${font Comic Sans MS:size=10}System Kernel: ${font Comic Sans MS:size=10}$alignr$kernel
+#
+#
+#
+#           运行时间        ###
+#############################                                 
+${color white}${font Comic Sans MS:size=10}Run Time: ${font Purisa:style=Bold:size=10}$alignr$uptime
+#
+#
+#
+#           Cpu频率       ###
+############################
+${color white}${font Comic Sans MS:size=10}Cpu Frequency: ${font Purisa:style=Bold:size=10}${alignr}${freq} MHz
+#
+#
+#
+#           cpu温度   ${acpitemp}   ###
+######################################
+${color white}${font Comic Sans MS:size=10}Cpu Temperature: ${font Purisa:style=Bold:size=10}${alignr}${acpitemp}°C
+#
+#
+#
+#
+#           processes：正在运行的进程数。  ######      
+#           running_processes：活跃的进程数。###
+#############################################
+${font Comic Sans MS:style=Bold:size=9}${color lightgrey}Processes:$color $processes ${color lightgrey}Running:$color $running_processes
+#
+#
+#
+#
+#           虚线            ###
+##############################
+$color$stippled_hr
+#
+#
+#
+#${color white}${font 微软雅黑:size=11}进 程 数: ${font 微软雅黑:size=10}${alignr}$processes ($running_processes running)
+#
+#
+#
+#          系统负载         ###
+#############################
+${color white}${font 微软雅黑:size=10}${alignc} CPU & MEM ${color}
+${color white}${font Comic Sans MS:size=10}System Information: ${font Comic Sans MS:size=8}${alignr}$loadavg
+#${color white}${font 微软雅黑:size=9}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
+#
+#
+#
+#          CPU使用率       ###
+#############################
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-1${color #dcff82} ${cpubar cpu1 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu1}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-2${color #88aadd} ${cpubar cpu2 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu2}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-3${color #dcff82} ${cpubar cpu3 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu3}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-4${color #88aadd} ${cpubar cpu4 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu4}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-5${color #dcff82} ${cpubar cpu5 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu5}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-6${color #88aadd} ${cpubar cpu6 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu6}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-7${color #dcff82} ${cpubar cpu7 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu7}%
+${color #F3AB2E}${font Comic Sans MS:style=Bold:size=10}C${color #C02E1D}p${color #F3AB2E}u${color white}-8${color #88aadd} ${cpubar cpu8 4,170} ${font Comic Sans MS:size=8}${color white}${alignr}${cpu cpu8}%
+##############################################################################
+##          cpubar：CPU占用的进度条样式。                                         ##
+##          cpugraph：CPU占用的频谱图样式。该元素可以加两个颜色值作参数，实现颜色渐变：   ##
+##          ${cpugraph 000000 5000a0}                                         ##
+##############################################################################
+#
+#
+#
+#           内存使用         ###
+###############################
+#${color lightgrey}RAM Usage:$color $mem/$memmax - $memperc% 
+##################################
+#           内存使用条        ######
+#${color #dcff82}${membar}     ###
+##################################
+${color white}${font Comic Sans MS:size=10}Physical Mem: ${font 微软雅黑:size=8}${alignr}$mem / $memmax ($memperc%)
+#
+#${color #88aadd}${membar 4}
+#################################################################
+#               mem：内存实时占用大小。                        ######
+#               memmax：内存总量。                           ######
+#               memperc：内存实时占用百分比。                  #######
+#               swap、swapmax、swapperc是虚拟内存的相应参数。   ######
+#################################################################
+#
+#
+#${color lightgrey}Swap Usage:$color $swap/$swapmax - $swapperc% 
+#               Swap使用条          ######
+#${color #dcff82}${swapbar}
+##########################################
+#
+${color white}${font Comic Sans MS:size=10}Swap: ${font Comic Sans MS:size=8}${alignr}$swap / $swapmax ($swapperc%)
+#${color #88aadd}${swapbar 4}
+#######################################################################
+#top name 1：按CPU占用从大到小排序当前进程并显示第一个的名字。              ####
+#top mem 2：按CPU占用从大到小排序当前进程并显示第二个的内存占用量。           ###
+#top pid 3：按CPU占用从大到小排序当前进程并显示第三个的pid号。               ##
+#top cpu 4：按CPU占用从大到小排序当前进程并显示第四个的CPU占用量。           ###
+#top_mem按内存占用从大到小排序当前进程。                                 ####
+#######################################################################
+$color$stippled_hr
+${color white}${font 微软雅黑:size=10}${alignc}Htop ${color}
+${color white}${font Comic Sans MS:size=10}High Cpu ${font Comic Sans MS:size=10}$alignr Cpu% ${font Comic Sans MS:size=10} Mem%
+${font Comic Sans MS:size=9}${color #F3AB2E}${top name 1}$alignr${top cpu 1}${top mem 1}
+${font Comic Sans MS:size=9}${top name 2}$alignr${top cpu 2}${top mem 2}
+${font Comic Sans MS:size=9}${top name 3}$alignr${top cpu 3}${top mem 3}
+${font Comic Sans MS:size=9}${top name 4}$alignr${top cpu 4}${top mem 4}
+${font Comic Sans MS:size=9}${top name 5}$alignr${top cpu 5}${top mem 5}
+#
+#
+${color white}${font Comic Sans MS:size=10}High Memory ${font Comic Sans MS:size=10}$alignr Cpu% ${font Comic Sans MS:size=10} Mem%
+${color #69E30B}${font Comic Sans MS:size=9}${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${color #69E30B}${font Comic Sans MS:size=9}${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${color #69E30B}${font Comic Sans MS:size=9}${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+${color #69E30B}${font Comic Sans MS:size=9}${top_mem name 4}$alignr${top_mem cpu 4}${top_mem mem 4}
+${color #69E30B}${font Comic Sans MS:size=9}${top_mem name 5}$alignr${top_mem cpu 5}${top_mem mem 5}
+##################################################
+#          mpd_status：监视mpd的状态。
+#          mpd_elapsed：歌曲的已播放时间。
+#          mpd_length：当前播放歌曲的长度。
+#          mpd_bar：当前播放歌曲的进度条。
+#          mpd_smart：智能判断当前歌曲的输出信息，如果id3可用，则输出”歌手-歌名“的格式，如果id3不可用，则输出当##前歌曲的文件名。
+#          除mpd外，Conky支持对audacious、bmp、xmms的监视。
+###################################################
+#           虚线                ####
+####################################
+$color$stippled_hr
+${color white}${font 微软雅黑:size=10}${alignc}File System ${color}
+#           根目录              #######
+#######################################
+${font Comic Sans MS:size=10}${color}     /    $color${fs_used /}/${fs_size /} ${color #dcff82}${fs_bar /}
+#根目录
+#${color #88aadd}${fs_bar 4 /}根目录 已使用量/总量
+#${color white}${font 微软雅黑:style=Bold:size=12}主目录: ${font 微软雅黑:size=10}${alignr}${fs_free /} / ${fs_size /}
+#/boot目录
+#${font Comic Sans MS:size=10}${color}/Boot $color${fs_used /boot}/${fs_size /boot} ${color #dcff82}${fs_bar /boot}
+#/home
+#${font Comic Sans MS:size=10}${color}/Home $color${fs_used /home}/${fs_size /home} ${color #dcff82}${fs_bar /home}
+#主目录
+#${color white}${font 微软雅黑:style=Bold:size=12}家目录: ${font 微软雅黑:size=10}${alignr}${fs_free /Home} / ${fs_size /home}
+#${color #88aadd}${fs_bar 4 /home}Home目录 已使用里/总量
+#${color #ffe7ba}WAN: $alignr$color${execi 3600 wget -O - http://whatismyip.org/ | tail}
+#
+######################################################################
+#          diskio：监视当前硬盘读写速度。
+#          diskiograph：以频谱形式输出硬盘读写频度，用法如cpugraph
+######################################################################
+#磁盘读取#磁盘写入
+${font Comic Sans MS:size=10}${color}Read : ${font Purisa:style=Bold:size=9}$diskio_read $alignr ${font Comic Sans MS:size=10}${color}Write: ${font Purisa:style=Bold:size=9}$diskio_write
+${font Comic Sans MS:size=10}${diskiograph_read /dev/sda 15,120 000000 758fff}$alignr${font Comic Sans MS:size=10}${diskiograph_write /dev/sda 15,120 000000 758fff}
+#           虚线                ####
+####################################
+$color$stippled_hr
+${color white}${font 微软雅黑:size=10}${alignc} NetWork ${color}
+#本地IP地址
+${color snow}${font Comic Sans MS:size=10}Net Address: ${alignc}${font Purisa:style=Bold:size=10}${color snow}${addr enp3s0}
+#####################################################################
+#            下载速度和上传速度
+#            downspeed eth0：第一块网卡下载数据的实时速度。
+#            upspeed eth0：第一块网卡上传数据的实时速度。
+#            downspeedgraph eth0 32,150 ff0000 0000ff：以频谱图的样式显示第一块网卡下载速度，高度为32像####         素，宽度为150像素，后面是两种颜色，用于渐变色。
+#            upspeedgraph eth0 …：用法同上。
+######################################################################
+#
+${font Comic Sans MS:size=10}Down: ${font Purisa:style=Bold:size=9}${downspeed enp3s0}k/s ${font Comic Sans MS:size=10}$alignr Up:${alignr}${font Purisa:style=Bold:size=9}${upspeed enp3s0}k/s
+${color #88aadd}${downspeedgraph enp3s0 15,120 ff0000 0000ff} $alignr${color #88aadd}${upspeedgraph enp3s0 15,120 0000ff ff0000}
+${color white}${font Comic Sans MS:size=10}Totaldown: ${font Comic Sans MS:style=Bold:size=9}${totaldown enp3s0} ${font Comic Sans MS:size=10}${alignr}Totalup: ${font Comic Sans MS:style=Bold:size=9}${totalup enp3s0}
+]]
