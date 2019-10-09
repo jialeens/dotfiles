@@ -74,8 +74,9 @@ label-unfocused-foreground = ${colors.nord9}
 label-unfocused-padding = 3
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.urgent}
-label-urgent-background = ${colors.nord4}
+label-urgent-foreground = ${colors.nord6}
+label-urgent-background = ${colors.urgent}
+label-urgent-underline = ${colors.nord5}
 label-urgent-padding = 3
 
 label-empty-foreground = ${colors.foreground-alt}
@@ -195,11 +196,11 @@ label-volume-foreground = ${colors.nord8}
 
 [module/backlight]
 type = custom/script
-format-prefix = " RedShift:"
-interval = 1.0
-exec = if pgrep -x redshift > /dev/null; then  echo ON; else echo OFF; fi
+interval = 0.5
+exec = if pgrep -x redshift > /dev/null; then  echo ; else echo ; fi
 format-prefix-foreground = ${colors.success}
 label-foreground = ${colors.success}
+label-underline = ${colors.success}
 click-left = ~/.config/polybar/scripts/toggle-redshift.sh
 
 [module/mpd]

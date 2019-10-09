@@ -1,5 +1,5 @@
 [global]
-font = Iosevka Term 11
+font = SegoePrint 10
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -154,8 +154,8 @@ max_icon_size = 80
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = 3
-frame_color = "#8EC07C"
+frame_width = 1
+frame_color = "#D08770"
 
 [shortcuts]
 
@@ -183,21 +183,21 @@ context = ctrl+shift+period
 # Otherwise the "#" and following would be interpreted as a comment.
 frame_color = "#3B7C87"
 foreground = "#3B7C87"
-background = "#191311"
+background = "#2E3440"
 #background = "#2B313C"
 timeout = 4
 
 [urgency_normal]
 frame_color = "#5B8234"
 foreground = "#5B8234"
-background = "#191311"
+background = "#2E3440"
 #background = "#2B313C"
 timeout = 6
 
 [urgency_critical]
 frame_color = "#B7472A"
 foreground = "#B7472A"
-background = "#191311"
+background = "#2E3440"
 #background = "#2B313C"
 timeout = 8
 

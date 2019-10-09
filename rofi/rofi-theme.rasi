@@ -1,8 +1,7 @@
 configuration {
 	modi: "window,drun,run";
-
-/*	width: 50;*/
-/*	lines: 15;*/
+	width: 40;
+	lines: 10;
 	columns: 2;
 	font: "等距更沙黑体 SC Medium 10";
 /*	bw: 1;*/
@@ -10,7 +9,7 @@ configuration {
 /*	padding: 5;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
-/*	fixed-num-lines: true;*/
+	fixed-num-lines: true;
 	show-icons: true;
 	terminal: "xfce4-terminal";
 /*	ssh-client: "ssh";*/
@@ -146,14 +145,14 @@ configuration {
 }
 
 * {
-    backgroundcolor: #2e3440;
-    bg1: #3b4252;
-    backgroundcoloralternate: #2e3440;
-    separatorcolor: #3b4252;
-    scrollbarcolor: #3b4252;
+    backgroundcolor: #2E3440;
+    bg1: #434C5E;
+    backgroundcoloralternate: #2E3440;
+    separatorcolor: #434C5E;
+    scrollbarcolor: #434C5E;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
-    selectioncolor: #3b4252;
+    selectioncolor: #434C5E;
 
 
     font-size: 1px;
