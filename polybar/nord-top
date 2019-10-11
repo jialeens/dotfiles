@@ -58,7 +58,6 @@ ws-icon-default = 
 
 ; color
 label-focused = %icon%
-label-focused-background = ${colors.nord1}
 label-focused-underline = ${colors.nord5}
 label-focused-foreground = ${colors.nord6}
 label-focused-padding = 3
@@ -75,8 +74,8 @@ label-unfocused-padding = 3
 
 label-urgent = %icon%
 label-urgent-foreground = ${colors.nord6}
-label-urgent-background = ${colors.urgent}
 label-urgent-underline = ${colors.nord5}
+label-urgent-background = ${colors.urgent_tr}
 label-urgent-padding = 3
 
 label-empty-foreground = ${colors.foreground-alt}
@@ -89,7 +88,7 @@ label-separator-foreground = ${colors.nord2}
 type = custom/script
 exec = ~/.config/polybar/scripts/get_focused_workspace_name.sh
 tail = true
-label-background = ${colors.urgent}
+label-background = ${colors.urgent_tr}
 label-padding = 3
 
 [module/date]
@@ -97,12 +96,11 @@ type = internal/date
 interval = 1.0
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %H:%M
-
-date-alt = %Y-%m-%d%
+date = %Y-%m-%d%
+time = %l:%M %p
+label =  %date%  %time%
 
 format = <label>
-label =  %date%
 label-margin = 1
 label-foreground = ${colors.nord8}
 label-underline = ${colors.nord8}
@@ -193,60 +191,16 @@ ramp-headphones-0 = 
 
 ramp-volume-foreground = ${colors.nord7}
 label-volume-foreground = ${colors.nord8}
+label-volume-underline = ${colors.urgent}
+format-volume-underline = ${colors.urgent}
 
 [module/backlight]
 type = custom/script
 interval = 0.5
 exec = if pgrep -x redshift > /dev/null; then  echo ; else echo ; fi
-format-prefix-foreground = ${colors.success}
 label-foreground = ${colors.success}
 label-underline = ${colors.success}
 click-left = ~/.config/polybar/scripts/toggle-redshift.sh
-
-[module/mpd]
-type = internal/mpd
-
-host = ${config.mpd-host}
-port = ${config.mpd-port}
-
-; Format
-format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop> | <bar-progress> | <icon-repeat> <icon-random>
-format-paused = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>
-format-stopped =  <toggle>
-
-label-song-underline = ${colors.nord8}
-
-icon-play = 
-icon-play-foreground = ${colors.success}
-icon-play-margin = 1
-icon-pause = 
-icon-pause-foreground = ${colors.warning}
-icon-pause-margin = 1
-icon-stop = 
-icon-stop-foreground = ${colors.urgent}
-icon-stop-margin = 1
-icon-prev = 
-icon-prev-foreground = ${colors.function}
-icon-prev-margin = 1
-icon-next = 
-icon-next-foreground = ${colors.function}
-icon-next-margin = 1
-icon-repeat = 
-icon-repeat-margin = 1
-icon-random = 
-icon-random-margin = 1
-
-toggle-on-foreground = ${colors.success}
-toggle-off-foreground = ${colors.urgent}
-
-bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-bar-progress-gradient = true
-bar-progress-foreground-0 = ${colors.nord7}
-bar-progress-foreground-1 = ${colors.nord8}
-bar-progress-foreground-2 = ${colors.nord9}
 
 [module/notify]
 type = custom/text
@@ -270,8 +224,8 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 
-ramp-signal-0-foreground = ${colors.urgent}
-ramp-signal-0-underline = ${colors.urgent}
+ramp-signal-0-foreground = ${colors.nord9}
+ramp-signal-0-underline = ${colors.nord9}
 
 ramp-signal-1-foreground = ${colors.notify}
 ramp-signal-1-underline = ${colors.notify}
@@ -281,3 +235,32 @@ ramp-signal-2-underline = ${colors.nord7}
 
 ramp-signal-3-foreground = ${colors.success}
 ramp-signal-3-underline = ${colors.success}
+
+[module/poweroff]
+type = custom/script
+exec = echo ""
+click-left = rofi -modi run,drun,window -show drun -theme rofi-theme
+click-right = bash ~/.config/polybar/scripts/rofi-logout.sh
+format-padding = 1
+
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-underline = ${colors.success}
+
+format-foreground = ${colors.success}
+format-padding = 2
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 100
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = Empty
+label-empty-foreground = #707880

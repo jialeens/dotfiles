@@ -28,8 +28,3 @@ thermal-zone = 0
 base-temperature = 20
 # Threshold temperature to display warning label (in degrees celsius)
 warn-temperature = 70
-
-# GitHub personal token, generate from https://github.com/settings/tokens/new?scopes=notifications&description=Notifier+for+Polybar
-# where select at least `notifications` option
-github-token = f676472063c17ea1f2f367b949578fb0206735b3
-
