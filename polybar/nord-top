@@ -248,9 +248,9 @@ type = internal/xwindow
 ; Available tags:
 ;   <label> (default)
 format = <label>
-format-underline = ${colors.success}
+format-underline = ${colors.nord13}
 
-format-foreground = ${colors.success}
+format-foreground = ${colors.nord13}
 format-padding = 2
 
 ; Available tokens:
