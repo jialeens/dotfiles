@@ -52,6 +52,9 @@ bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec google-chrome-stable
 bindsym $mod+e exec thunar
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Print exec --no-startup-id i3-scrot -w
+bindsym Shift+Print exec --no-startup-id i3-scrot -s
 
 # foucus follows mouse(cursor)
 focus_follows_mouse yes
@@ -176,16 +179,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 
 # Open applications on specific workspaces
- assign [class="Firefox"] $ws2
- assign [class="Google-chrome"] $ws2
- assign [class="Code"] $ws3
- assign [class="Gitg"] $ws3
- assign [class="Typora"] $ws4
- assign [class="Wps"] $ws4
- assign [class="Et"] $ws4
- assign [class="Wpp"] $ws4
- assign [class="Dota2"] $ws5
- assign [class="Steam"] $ws5
+assign [class="Firefox"] $ws2
+assign [class="firefox"] $ws2
+assign [class="Google-chrome"] $ws2
+assign [class="Code"] $ws3
+assign [class="Gitg"] $ws3
+assign [class="Typora"] $ws4
+assign [class="Wps"] $ws4
+assign [class="Et"] $ws4
+assign [class="Wpp"] $ws4
+assign [class="Dota2"] $ws5
+assign [class="Steam"] $ws5
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -291,6 +295,7 @@ exec --no-startup-id xautolock -time 10 -locker i3lock-fancy
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 #exec --no-startup-id redshift &
 exec --no-startup-id dunst
+exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 
 #---wallpaper---
 # static mode
