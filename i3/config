@@ -31,7 +31,7 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
-bindsym mod1+F4 kill
+bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme rofi-theme
@@ -52,15 +52,14 @@ bindsym $mod+F1 exec --no-startup-id xfce4-terminal --command ranger
 bindsym $mod+F2 exec --no-startup-id firefox
 bindsym $mod+F3 exec --no-startup-id google-chrome-stable
 
-bindsym $mod+e exec thunar
+bindsym $mod+e exec pcmanfm
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w 
 bindsym Shift+Print --release exec --no-startup-id i3-scrot -s 
 
 # MPD control
-bindsym $mod+mod1+p exec --no-startup-id mpc play
-bindsym $mod+mod1+s exec --no-startup-id mpc pause
+bindsym $mod+mod1+p exec --no-startup-id mpc toggle
 bindsym $mod+mod1+Left exec --no-startup-id mpc next
 bindsym $mod+mod1+Right exec --no-startup-id mpc prev
 
@@ -243,7 +242,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 # Set shut down, restart and locking features
-bindsym $mod+shift+q mode "$mode_system"
+bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit,  (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock-fancy , mode "default"
@@ -296,7 +295,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit &
 exec --no-startup-id ss-qt5
 exec --no-startup-id fcitx
-exec --no-startup-id conky
+exec --no-startup-id bash ~/.config/conky/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id mate-power-manager
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy 

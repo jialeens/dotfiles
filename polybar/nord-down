@@ -211,4 +211,4 @@ foregroun= ${colors.nord13}
 tail = true
 interval = 5
 format-foreground = ${colors.nord13}
-click-left = pamac-manager &
+click-left = pamac-manager --updates &
