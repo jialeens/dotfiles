@@ -44,7 +44,7 @@ type = internal/network
 interface = ${config.interface}
 interval = 3
 format-connected = <label-connected>
-label-connected = %downspeed:9%  %upspeed:9%
+label-connected =  %downspeed%  %upspeed%
 label-connected-foreground = ${colors.success}
 
 [module/temperature]
@@ -149,7 +149,7 @@ format-unmounted = <label-unmounted>
 ;   %free%
 ;   %used%
 ; Default: %mountpoint% %percentage_free%%
-label-mounted =  %mountpoint%:%free%
+label-mounted =  %mountpoint%:%free%
 label-mounted-foreground = ${colors.nord11}
 ; Available tokens:
 ;   %mountpoint%
@@ -203,3 +203,12 @@ bar-progress-gradient = true
 bar-progress-foreground-0 = ${colors.nord7}
 bar-progress-foreground-1 = ${colors.nord8}
 bar-progress-foreground-2 = ${colors.nord9}
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates.sh
+foregroun= ${colors.nord13}
+tail = true
+interval = 5
+format-foreground = ${colors.nord13}
+click-left = pamac-manager &

@@ -237,10 +237,9 @@ ramp-signal-3-foreground = ${colors.success}
 ramp-signal-3-underline = ${colors.success}
 
 [module/poweroff]
-type = custom/script
-exec = echo ""
-click-left = rofi -modi run,drun,window -show drun -theme rofi-theme
-click-right = bash ~/.config/polybar/scripts/rofi-logout.sh
+type = custom/text
+content =
+click-left = bash ~/.config/polybar/scripts/rofi-logout.sh
 format-padding = 1
 
 [module/title]

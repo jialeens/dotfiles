@@ -1,8 +1,8 @@
 ; vim:ft=dosini
 
 [colors]
-bar_bg = #cc2E3440
-nord0 = #2E3440
+bar_bg = #cc29353B
+nord0 = #29353B
 nord1 = #3B4252
 nord2 = #434C5E
 nord3 = #4C566A

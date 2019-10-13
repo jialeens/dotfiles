@@ -35,6 +35,7 @@ bindsym mod1+F4 kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme rofi-theme
+bindsym $mod+Shift+d exec --no-startup-id xfce4-appfinder
 
 # launch window menu
 bindsym $mod+w exec --no-startup-id rofi -show window -theme rofi-theme
@@ -46,15 +47,22 @@ exec --no-startup-id volumeicon
 ################################################################################################
 
 # Start Applications
-bindsym $mod+Escape exec deepin-system-monitor
-bindsym $mod+F1 exec xfce4-terminal --command ranger
-bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec google-chrome-stable
+bindsym $mod+Escape exec --no-startup-id deepin-system-monitor
+bindsym $mod+F1 exec --no-startup-id xfce4-terminal --command ranger
+bindsym $mod+F2 exec --no-startup-id firefox
+bindsym $mod+F3 exec --no-startup-id google-chrome-stable
+
 bindsym $mod+e exec thunar
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print exec --no-startup-id i3-scrot -w
-bindsym Shift+Print exec --no-startup-id i3-scrot -s
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w 
+bindsym Shift+Print --release exec --no-startup-id i3-scrot -s 
+
+# MPD control
+bindsym $mod+mod1+p exec --no-startup-id mpc play
+bindsym $mod+mod1+s exec --no-startup-id mpc pause
+bindsym $mod+mod1+Left exec --no-startup-id mpc next
+bindsym $mod+mod1+Right exec --no-startup-id mpc prev
 
 # foucus follows mouse(cursor)
 focus_follows_mouse yes
@@ -66,7 +74,7 @@ bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
+bindsym $mod+Left focus leftX
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
@@ -220,7 +228,7 @@ for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="ss-qt5"] floating enable
 for_window [class="deepin-system-monitor"] floating enable
-
+for_window [class="Xfce4-appfinder"] floating enable
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -299,7 +307,7 @@ exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 
 #---wallpaper---
 # static mode
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/4.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpapers/6.jpg
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -347,7 +355,7 @@ set_from_resource $term_color15    color15
 #############################
 
 # Set inner/outer gaps
-gaps inner 15
+gaps inner 14
 gaps outer -4
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
