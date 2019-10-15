@@ -4,7 +4,7 @@ while true; do
     | jq '.[] | select(.focused==true).name' \
     | cut -d"\"" -f2)
   array=(${lines//:/ }) 
-  printf "●${array[1]}\\n"
+  printf " ${array[1]}\\n"
 
-	sleep 1
+	sleep 2
 done

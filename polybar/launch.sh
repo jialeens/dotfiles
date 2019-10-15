@@ -7,9 +7,8 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload nord-top &
-    MONITOR=$m polybar --reload nord-down &
+    MONITOR=$m polybar --reload top &
+    MONITOR=$m polybar --reload down &
 done
-
 
 echo "Bars launched..."

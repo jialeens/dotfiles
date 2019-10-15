@@ -1,21 +1,20 @@
-
+; vim:ft=dosini
 [color]
-
 ; Active Shade 
-shade1 = #004D40
-shade2 = #00695C
-shade3 = #00796B
-shade4 = #00897B
-shade5 = #009688
-shade6 = #26A69A
-shade7 = #4DB6AC
-shade8 = #80CBC4
+shade1 = #B71C1C
+shade2 = #C62828
+shade3 = #D32F2F
+shade4 = #E53935
+shade5 = #EE413D
+shade6 = #EF5350
+shade7 = #E57373
+shade8 = #EF9A9A
 
 ;; Active Colors
 bground = #991D1F28
 fground = #f7f7f7
 ;borderbg = #f7f7f7
-accent = #00897B
+accent = #E53935
 modulefg = #f7f7f7
 modulefg-alt = #f7f7f7
 

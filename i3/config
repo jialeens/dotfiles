@@ -143,8 +143,8 @@ set $ws1  1:Home
 set $ws2  2:Browser
 set $ws3  3:Coding
 set $ws4  4:Doc
-set $ws5  5:Fun
-set $ws6  6
+set $ws5  5:Chat
+set $ws6  6:Fun
 set $ws7  7
 set $ws8  8
 set $ws9  9 
@@ -196,8 +196,9 @@ assign [class="Typora"] $ws4
 assign [class="Wps"] $ws4
 assign [class="Et"] $ws4
 assign [class="Wpp"] $ws4
-assign [class="Dota2"] $ws5
-assign [class="Steam"] $ws5
+assign [class="electronic-wechat"] $ws5
+assign [class="Dota2"] $ws6
+assign [class="Steam"] $ws6
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1

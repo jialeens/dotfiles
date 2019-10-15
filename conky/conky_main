@@ -7,7 +7,7 @@ conky.config = {
 	double_buffer = true,
 	font = '等距更纱黑体 SC Medium:size=8',
 	gap_x = 25,
-	gap_y = 45,
+	gap_y = 100,
 	minimum_width = 250,
 	no_buffers = true,
 	own_window = true,
@@ -15,7 +15,6 @@ conky.config = {
 	own_window_transparent = true,
 	update_interval = 2.0,
 	use_xft = true,
-	draw_shades=true,
 	draw_shades=true
 }
 conky.text = [[
