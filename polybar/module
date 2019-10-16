@@ -1,4 +1,4 @@
-; vim:ft=dosini
+         ; vim:ft=dosini
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
@@ -97,19 +97,24 @@ label-empty = %icon%
 label-separator = |
 label-separator-background = ${color.shade2}
 
+; -----------------------------------------------------------------------------
+[module/workspace-name]
+type = internal/i3
+format =<label-state>
+label-focused-padding = 2
+label-focused =  %name%
+label-focused-background = ${color.shade3}
+label-visible = 
+label-unfocused = 
+label-urgent = 
+label-empty = 
+; -----------------------------------------------------------------------------
 [module/i3-mode]
 type = internal/i3
 format =<label-mode>
 format-padding = 3
 format-underline = ${color.fground}
 format-foreground = ${color.fground}
-; -----------------------------------------------------------------------------
-[module/workspace-name]
-type = custom/script
-exec = ~/.config/polybar/scripts/get_focused_workspace_name.sh
-tail = true
-label-background = ${color.shade3}
-label-padding = 1
 ; -----------------------------------------------------------------------------
 [module/title]
 type = internal/xwindow
@@ -222,7 +227,7 @@ label-padding = 1
 [module/poweroff]
 type = custom/text
 content = 
-click-left = bash ~/.config/polybar/scripts/rofi-logout.sh &
+click-left = bash ~/.config/polybar/scripts/rofi-logout.sh 
 content-padding = 2
 content-background = ${color.shade1}
 ; -----------------------------------------------------------------------------
@@ -240,8 +245,8 @@ label-background = ${color.shade1}
 [module/info-trash]
 type = custom/script
 exec = ~/.config/polybar/scripts/info-trash.sh
-interval = 60
-click-left = ~/.config/polybar/scripts/info-trash.sh --clean &
+interval = 10
+click-left = ~/.config/polybar/scripts/info-trash.sh --clean 
 label-padding = 0.5
 label-background = ${color.shade2}
 ; -----------------------------------------------------------------------------
@@ -249,7 +254,7 @@ label-background = ${color.shade2}
 type = custom/script
 exec = ~/.config/polybar/scripts/isrunning-compton.sh
 interval = 2
-click-left = ~/.config/polybar/scripts/isrunning-compton.sh --toggle &
+click-left = ~/.config/polybar/scripts/isrunning-compton.sh --toggle 
 label-padding = 0.5
 label-background = ${color.shade3}
 ; -----------------------------------------------------------------------------
@@ -257,7 +262,7 @@ label-background = ${color.shade3}
 type = custom/script
 interval = 2
 exec = ~/.config/polybar/scripts/isrunning-redshift.sh
-click-left = ~/.config/polybar/scripts/isrunning-redshift.sh --toggle &
+click-left = ~/.config/polybar/scripts/isrunning-redshift.sh --toggle 
 label-background = ${color.shade4}
 ; -----------------------------------------------------------------------------
 [module/updates]
@@ -265,7 +270,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/updates.sh
 foregroun= ${color.fground}
 tail = true
-click-left = pamac-manager --updates &
+click-left = pamac-manager --updates 
 label-padding = 0.5
 label-background = ${color.shade5}
 ; -----------------------------------------------------------------------------

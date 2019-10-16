@@ -114,7 +114,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
@@ -306,9 +305,6 @@ exec --no-startup-id mate-power-manager
 exec --no-startup-id xautolock -time 10 -locker i3lock-fancy 
 exec --no-startup-id bash ~/.config/polybar/launch.sh
 #exec --no-startup-id redshift &
-exec --no-startup-id dunst
-exec --no-startup-id mpd ~/.config/mpd/mpd.conf
-exec --no-startup-id /usr/bin/mpd-notification &
 
 #---wallpaper---
 # static mode

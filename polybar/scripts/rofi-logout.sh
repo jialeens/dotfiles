@@ -10,13 +10,13 @@ case $question in
         ;;
     *logout)
         #command -v gnome-session-quit 2>/dev/null 2>&1 || command -v session-logout >/dev/null 2>&1
-        command -v session-logout
+        i3exit logout
         ;;
     *reboot)
-        systemctl reboot
+        i3exit reboot
         ;;
     *shutdown)
-        systemctl poweroff
+        i3exit shutdown
         ;;
     *)
         exit 0  # do nothing on wrong response

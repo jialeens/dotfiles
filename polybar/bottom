@@ -1,5 +1,5 @@
 ; vim:ft=dosini
-[bar/down]
+[bar/bottom]
 monitor = ${env:MONITOR:DVI-D-0}
 width = 100%
 height = 24
