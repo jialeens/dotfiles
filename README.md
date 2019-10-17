@@ -1,5 +1,11 @@
 # jialeens dotfiles
 
+This git repository is a configuration file for the Manjaro operating system of my home computer, including I3-gap, polybar, conky, dunst, rofi and other configuration files, and supports multi-display display polybar.
+
+If you want to use a portion of its contents, only you need the corresponding configuration file in the corresponding path.
+
+If you have any suggestions, please give me an [issus](issues).
+
 ## screenshot
 
 ### multi-display
@@ -12,7 +18,7 @@
 
 ### polybar 
 
-support display on multi-display.
+Support multi-screen display.
 
 #### top-bar
 
