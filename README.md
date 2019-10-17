@@ -4,7 +4,7 @@ This git repository is a configuration file for the Manjaro operating system of 
 
 If you want to use a portion of its contents, only you need the corresponding configuration file in the corresponding path.
 
-If you have any suggestions, please give me an [issus](issues).
+If you have any suggestions, please give me an [issus](https://github.com/jialeens/dotfiles/issues).
 
 ## screenshot
 
