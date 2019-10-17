@@ -10,11 +10,7 @@ Manjaro Linux [i3-gaps + Polybar + Dunst + Zsh + Rofi + conky]
 
 ### neofetch
 
-![neofetch](/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/neofetch.png)
-
-### rofi
-
-![rofi](/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/rofi.png)
+![neofetch](.screenshots/neofetch.png)
 
 ### polybar 
 
@@ -22,19 +18,23 @@ support display on multi-display.
 
 #### top-bar
 
-![top-bar](/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/top-bar.png)
+![top-bar](.screenshots/top-bar.png)
 
 #### bottom-bar
 
-![bottom-bar](/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/bottom-bar.png)
+![bottom-bar](.screenshots/bottom-bar.png)
+
+### rofi
+
+![rofi](.screenshots/rofi.png)
 
 ### xfce4-appfinder
 
-<img src="/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/appfinder.png" alt="appfinder"  />
+![appfinder](.screenshots/appfinder.png)
 
 ### conky
 
-![conky](/home/jiale/Documents/github/jialeens/dotfiles/.screenshots/conky.png)
+![conky](.screenshots/conky.png)
 
 ## Welcome to my dotfiles! 
 
