@@ -1,6 +1,4 @@
-<div align="center" style="font-size=20px">
-Manjaro Linux [i3-gaps + Polybar + Dunst + Zsh + Rofi + conky]
-</div>
+# jialeens dotfiles
 
 ## screenshot
 
