@@ -1,5 +1,9 @@
 # jialeens dotfiles
 
+this is my PC dotfiles。
+
+**If you need help**, check out the [Support](SUPPORT.md) page.
+
 ## screenshot
 
 ### multi-display
