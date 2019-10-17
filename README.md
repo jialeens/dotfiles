@@ -2,6 +2,10 @@
 Manjaro Linux [i3-gaps + Polybar + Dunst + Zsh + Rofi + conky]
 </div>
 
+this is my PC dotfiles。
+
+**If you need help**, check out the [Support](SUPPORT.md) page.
+
 ## screenshot
 
 ### multi-display
