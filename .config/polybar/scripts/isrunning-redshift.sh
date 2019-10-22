@@ -13,9 +13,9 @@ case "$1" in
     *)
         if pgrep -x redshift > /dev/null; 
 		then
-            echo "Redshift : "
+            echo "Redshift "
         else
-            echo "Redshift : "
+            echo "Redshift "
         fi
         ;;
 esac

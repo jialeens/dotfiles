@@ -10,22 +10,23 @@ wm-restack = i3
 ;separator-foreground = ${colors.nord0}
 background = ${color.bground}
 foreground = ${color.fground}
-radius = 10
 
-border-top-size = 0
-border-bottom-size = 7
-border-right-size = 7
-border-left-size = 7
+#radius = 10
+#border-top-size = 0
+#border-bottom-size = 7
+#border-right-size = 7
+#border-left-size = 7
 
 padding-left = 0
 padding-right = 0
 module-margin = 0
 
+
 font-0 = Font Awesome 5 Free:style=Solid:pixelsize=12;2
 font-1 = Font Awesome 5 Brands:pixelsize=12;2
 font-2 = Weather Icons:style=Regular:size=12;2
 font-3 = 更纱黑体 SC:style=mdeium:size=8;2
-font-4 = DejaVuSansMono Nerd Font:size=19;4
+font-4 = DroidSansMono Nerd Font Mono:size=19;4
 
 modules-left = info-hackspeed left1 info-trash left2 isrunning-compton left3 backlight left4 updates left5 weather left6 info-kernel left7
 modules-center = right1-end mpd left1-end

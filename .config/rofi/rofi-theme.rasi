@@ -145,14 +145,14 @@ configuration {
 }
 
 * {
-    backgroundcolor: #2E3440;
-    bg1: #434C5E;
-    backgroundcoloralternate: #2E3440;
-    separatorcolor: #434C5E;
-    scrollbarcolor: #434C5E;
+    backgroundcolor: #29353B;
+    bg1: #1A9C82;
+    backgroundcoloralternate: #29353B;
+    separatorcolor: #1A9C82;
+    scrollbarcolor: #1A9C82;
     foregroundcolor: #839496;
     foregroundcolorinverse: #839496;
-    selectioncolor: #434C5E;
+    selectioncolor: #222D32;
 
 
     font-size: 1px;

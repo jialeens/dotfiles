@@ -7,7 +7,7 @@ conky.config = {
 	double_buffer = true,
 	font = '等距更纱黑体 SC Medium:size=8',
 	gap_x = 25,
-	gap_y = 100,
+	gap_y = 45,
 	minimum_width = 250,
 	no_buffers = true,
 	own_window = true,
@@ -205,7 +205,7 @@ $color$stippled_hr
 ${color white}${font 微软雅黑:size=10}${alignc}File System ${color}
 #           根目录              #######
 #######################################
-${font Comic Sans MS:size=10}${color}     /    $color${fs_used /}/${fs_size /} ${color #dcff82}${fs_bar /}
+${font Comic Sans MS:size=9}${color}     /    $color${fs_used /}/${fs_size /} ${color #dcff82}${fs_bar /}
 #根目录
 #${color #88aadd}${fs_bar 4 /}根目录 已使用量/总量
 #${color white}${font 微软雅黑:style=Bold:size=12}主目录: ${font 微软雅黑:size=10}${alignr}${fs_free /} / ${fs_size /}
@@ -217,7 +217,10 @@ ${font Comic Sans MS:size=10}${color}     /    $color${fs_used /}/${fs_size /} $
 #${color white}${font 微软雅黑:style=Bold:size=12}家目录: ${font 微软雅黑:size=10}${alignr}${fs_free /Home} / ${fs_size /home}
 #${color #88aadd}${fs_bar 4 /home}Home目录 已使用里/总量
 #${color #ffe7ba}WAN: $alignr$color${execi 3600 wget -O - http://whatismyip.org/ | tail}
-#
+#data
+${font Comic Sans MS:size=9}${color}/Data $color${fs_used /data}/${fs_size /data} ${color #dcff82}${fs_bar /data}
+
+#=
 ######################################################################
 #          diskio：监视当前硬盘读写速度。
 #          diskiograph：以频谱形式输出硬盘读写频度，用法如cpugraph
@@ -242,4 +245,6 @@ ${color snow}${font Comic Sans MS:size=10}Net Address: ${alignc}${font Purisa:st
 ${font Comic Sans MS:size=10}Down: ${font Purisa:style=Bold:size=9}${downspeed enp3s0}k/s ${font Comic Sans MS:size=10}$alignr Up:${alignr}${font Purisa:style=Bold:size=9}${upspeed enp3s0}k/s
 ${color #88aadd}${downspeedgraph enp3s0 15,120 ff0000 0000ff} $alignr${color #88aadd}${upspeedgraph enp3s0 15,120 0000ff ff0000}
 ${color white}${font Comic Sans MS:size=10}Totaldown: ${font Comic Sans MS:style=Bold:size=9}${totaldown enp3s0} ${font Comic Sans MS:size=10}${alignr}Totalup: ${font Comic Sans MS:style=Bold:size=9}${totalup enp3s0}
+
+
 ]]

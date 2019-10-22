@@ -61,35 +61,35 @@ fuzzy-match = false
 format =<label-state>
 
 ; icons
-ws-icon-0 = 1:Home;
-ws-icon-1 = 2:Browser;
-ws-icon-2 = 3:Coding;
-ws-icon-3 = 4:Doc;
-ws-icon-4 = 5:Chat;
-ws-icon-5 = 6:Fun;
-ws-icon-6 = 25:Desktop;
-ws-icon-default = 
+ws-icon-0 = 1:Home; 
+ws-icon-1 = 2:Browser; 
+ws-icon-2 = 3:Console; 
+ws-icon-3 = 4:Coding; 
+ws-icon-4 = 5:Document; 
+ws-icon-5 = 6:Chat; 
+ws-icon-6 = 7:Fun; 
+ws-icon-default = 
 
 label-mode-background = ${color.shade2}
 
 ; color
 label-focused = %icon%
 label-focused-underline = ${color.white}
-label-focused-padding = 3
+label-focused-padding = 2
 label-focused-background = ${color.shade2}
 
 label-visible = %icon%
-label-visible-padding = 3
+label-visible-padding = 2
 label-visible-background = ${color.shade2}
 
 label-unfocused = %icon%
-label-unfocused-padding = 3
+label-unfocused-padding = 2
 label-unfocused-background = ${color.shade2}
 
 label-urgent = %icon%
 label-urgent-underline = ${color.light-green}
 label-urgent-background = ${color.shade2}
-label-urgent-padding = 3
+label-urgent-padding = 2
 
 label-empty-foreground = ${color.cyan}
 label-empty = %icon%
@@ -102,19 +102,12 @@ label-separator-background = ${color.shade2}
 type = internal/i3
 format =<label-state>
 label-focused-padding = 2
-label-focused =  %name%
+label-focused =  %name%
 label-focused-background = ${color.shade3}
 label-visible = 
 label-unfocused = 
 label-urgent = 
 label-empty = 
-; -----------------------------------------------------------------------------
-[module/i3-mode]
-type = internal/i3
-format =<label-mode>
-format-padding = 3
-format-underline = ${color.fground}
-format-foreground = ${color.fground}
 ; -----------------------------------------------------------------------------
 [module/title]
 type = internal/xwindow
@@ -129,8 +122,8 @@ format-padding = 2
 ; Available tokens:
 ;   %title%
 ; Default: %title%
-label =  %title% 
-label-maxlen = 100
+label = %title%
+label-maxlen = 50
 
 ; Used instead of label when there is no window title
 ; Available tokens:
@@ -147,10 +140,10 @@ blacklist-1 = scroll lock
 
 ; Format
 format = <label-indicator>
-click-left = xdotool key control+grave &
+
 label-indicator-on-capslock =CL 
 label-indicator-on-capslock-background = ${color.shade6}
-label-indicator-off-capslock =CL 
+label-indicator-off-capslock =CL 
 label-indicator-off-capslock-background = ${color.shade6}
 label-indicator-on-numlock = c 
 label-indicator-on-numlock-background = ${color.shade6}
@@ -160,7 +153,7 @@ label-indicator-on-scrolllock = e
 label-indicator-on-scrolllock-background = ${color.shade6}
 label-indicator-off-scrolllock = f
 label-indicator-off-scrolllock-background = ${color.shade6}
-
+label-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/alsa]
 type = internal/alsa
@@ -184,6 +177,7 @@ ramp-headphones-0 = 
 
 ramp-volume-background = ${color.shade5}
 label-volume-background = ${color.shade5}
+label-padding = 1
 ; -----------------------------------------------------------------------------
 [module/network-short]
 type = internal/network
@@ -202,12 +196,13 @@ ramp-signal-0-background = ${color.shade4}
 ramp-signal-1-background = ${color.shade4}
 ramp-signal-2-background = ${color.shade4}
 ramp-signal-3-background = ${color.shade4}
+label-padding = 1
 ; -----------------------------------------------------------------------------
 [module/notify]
 type = custom/text
 content = 
 content-background = ${color.shade3}
-content-padding = 1
+label-padding = 1
 
 click-left = xdotool key control+grave &
 ; -----------------------------------------------------------------------------
@@ -228,7 +223,7 @@ label-padding = 1
 type = custom/text
 content = 
 click-left = bash ~/.config/polybar/scripts/rofi-logout.sh 
-content-padding = 2
+content-padding = 3
 content-background = ${color.shade1}
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
@@ -241,6 +236,7 @@ exec = ~/.config/polybar/scripts/info-hackspeed.sh
 tail = true
 label-padding-left = 2
 label-background = ${color.shade1}
+label-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/info-trash]
 type = custom/script
@@ -255,6 +251,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/isrunning-compton.sh
 interval = 2
 click-left = ~/.config/polybar/scripts/isrunning-compton.sh --toggle 
+click-right = compton-conf &
 label-padding = 0.5
 label-background = ${color.shade3}
 ; -----------------------------------------------------------------------------
@@ -264,6 +261,7 @@ interval = 2
 exec = ~/.config/polybar/scripts/isrunning-redshift.sh
 click-left = ~/.config/polybar/scripts/isrunning-redshift.sh --toggle 
 label-background = ${color.shade4}
+label-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/updates]
 type = custom/script
@@ -280,6 +278,7 @@ exec = ~/.config/polybar/scripts/openweathermap-fullfeatured.sh
 interval = 3600
 label-font = 4
 label-background = ${color.shade6}
+label-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/info-kernel]
 type = custom/script
@@ -357,7 +356,7 @@ base-temperature = ${config.base-temperature}
 warn-temperature = ${config.warn-temperature}
 ; Format
 format = <ramp> <label>
-label-padding = 1
+label-padding = 0.5
 format-warn = <label-warn>
 format-background = ${color.shade5}
 label-warn =  %temperature-c%
@@ -381,14 +380,12 @@ format-padding = 0.5
 [module/memory]
 type = internal/memory
 interval = 3
-format-padding = 1
+format-padding = 0.5
 format = <ramp-used> <label>
 format-background = ${color.shade3}
 ramp-used-0 = 
 ramp-used-1 = 
 ramp-used-2 = 
-
-
 ; -----------------------------------------------------------------------------
 [module/filesystem]
 type = internal/fs
@@ -440,9 +437,9 @@ label-unmounted-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/info-whoami]
 type = custom/script
-exec = echo  $(whoami)
+exec = echo  $(whoami)
 interval = 1024
-label-[addomg-left= 0.5
+label-padding-left= 0.5
 label-padding-right = 2
 label-background = ${color.shade1}
 
