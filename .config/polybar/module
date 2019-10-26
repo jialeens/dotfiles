@@ -109,6 +109,13 @@ label-unfocused =
 label-urgent = 
 label-empty = 
 ; -----------------------------------------------------------------------------
+[module/i3-mode]
+type = internal/i3
+format =<label-mode>
+format-padding = 3
+format-underline = ${color.fground}
+format-foreground = ${color.fground}
+; -----------------------------------------------------------------------------
 [module/title]
 type = internal/xwindow
 ; Available tags:
@@ -172,7 +179,6 @@ ramp-volume-1 = 
 ramp-volume-1-background = ${color.shade5}
 ramp-volume-2 =  
 ramp-volume-2-background = ${color.shade5}
-
 ramp-headphones-0 = 
 
 ramp-volume-background = ${color.shade5}

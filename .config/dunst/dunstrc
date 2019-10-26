@@ -155,7 +155,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+    icon_path = ~/.local/share/icons/McMojave-circle/apps/:/home/jiale/.local/share/icons/McMojave-circle/apps@2x/scalable
 
     # Limit icons size.
     max_icon_size=48
@@ -183,29 +183,23 @@ history = ctrl+grave
 # Context menu.
 context = ctrl+shift+period
 
+
 [urgency_low]
-# IMPORTANT: colors have to be defined in quotation marks.
-# Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#3B7C87"
-foreground = "#3B7C87"
-background = "#2E3440"
-#background = "#2B313C"
-timeout = 4
+    background = "#232323"
+    foreground = "#a8a8a8"
+    timeout = 10
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#2E3440"
-#background = "#2B313C"
-timeout = 6
+    background = "#232323"
+    foreground = "#a8a8a8"
+    timeout = 10
 
 [urgency_critical]
-frame_color = "#B7472A"
-foreground = "#B7472A"
-background = "#2E3440"
-#background = "#2B313C"
-timeout = 8
-
+    background = "#d64e4e"
+    foreground = "#f0e0e0"
+    frame_color = "#d64e4e"
+    timeout = 0
+    icon = /home/jiale/.local/share/icons/McMojave-circle/apps/scalable/system-error.svg
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

@@ -27,7 +27,7 @@ font-2 = Weather Icons:style=Regular:size=12;2
 font-3 = 更纱黑体 SC:style=mdeium:size=8;2
 font-4 = DroidSansMono Nerd Font Mono:size=19;4
 
-modules-left = appfinder left1 i3 left2 workspace-name left3-end
+modules-left = appfinder left1 i3 left2 workspace-name left3-end i3-mode
 modules-center =right1-end title left1-end
 modules-right = right6-end keyboard right5 alsa right4 network-short right3 notify right2 date right1 poweroff 
 
