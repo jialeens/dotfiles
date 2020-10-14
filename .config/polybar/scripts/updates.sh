@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BAR_ICON=""
-NOTIFY_ICON=~/.local/share/icons/McMojave-circle/apps/scalablesystem-software-update.svg
+NOTIFY_ICON=~/.local/share/icons/papirus-icon-theme-master/Papirus/64x64@2x/apps/yast-software.svg
 get_total_updates() { UPDATES=$(checkupdates 2>/dev/null | wc -l); }
 
 while true; do
@@ -34,13 +34,13 @@ while true; do
             else
                 echo $BAR_ICON $COUNT
             fi
-            sleep 300
+            sleep 3600
             get_total_updates
         done
 
         # when no updates are available, use a longer loop, this saves on CPU
         while (( UPDATES == 0 )); do
-            echo $BAR_ICON 0 Updates
+            echo $BAR_ICON "(0)"
             sleep 300
             get_total_updates
         done

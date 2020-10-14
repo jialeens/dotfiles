@@ -1,12 +1,12 @@
 #!/bin/sh
 # shellcheck disable=SC2016,SC2059
 
-KEYBOARD_ID="USB Keyboard"
+KEYBOARD_ID="HID 04b4:0823"
 
 # cpm: characters per minute
 # wpm: words per minute (1 word = 5 characters)
 METRIC=cpm
-FORMAT=" %d $METRIC"
+FORMAT=" (%d $METRIC)"
 
 INTERVAL=20
 

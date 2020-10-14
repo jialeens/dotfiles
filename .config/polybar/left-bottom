@@ -1,11 +1,12 @@
 ; vim:ft=dosini
-[bar/bottom]
-monitor = ${env:MONITOR:DVI-D-0}
+[bar/left-bottom]
+monitor = ${env:MONITOR}
+enable-ipc = true
+override-redirect = false
 width = 100%
-height = 24
+height = 20
 fixed-center = true
 bottom = true
-wm-restack = i3
 ;separator = |
 ;separator-foreground = ${colors.nord0}
 background = ${color.bground}
@@ -13,26 +14,29 @@ foreground = ${color.fground}
 
 #radius = 10
 #border-top-size = 0
-#border-bottom-size = 7
-#border-right-size = 7
-#border-left-size = 7
-
+#border-bottom-size = 4
+#border-right-size = 4
+#border-left-size = 4
 padding-left = 0
 padding-right = 0
 module-margin = 0
 
+#dim-value = 0.8
 
 font-0 = Font Awesome 5 Free:style=Solid:pixelsize=12;2
 font-1 = Font Awesome 5 Brands:pixelsize=12;2
 font-2 = Weather Icons:style=Regular:size=12;2
-font-3 = 更纱黑体 SC:style=mdeium:size=8;2
-font-4 = DroidSansMono Nerd Font Mono:size=19;4
+font-3 = 更纱黑体 SC:style=bold:size=8;2
+font-4 = DroidSansMono Nerd Font Mono:size=17;4
+#font-5 = NotoEmoji Nerd Font Mono:size=8;2
+    
+
 
 modules-left = info-hackspeed left1 info-trash left2 isrunning-compton left3 backlight left4 updates left5 weather left6 info-kernel left7
-modules-center = right1-end mpd left1-end
+modules-center = right3-end mpd left3-end
 modules-right = right7 info-publicip right6 network-detail right5 temperature right4 cpu right3 memory right2 filesystem right1 info-whoami
 
 tray-position = none
 
 cursor-click = pointer
-cursor-scroll = ns-resize
+#cursor-scroll = ns-resize

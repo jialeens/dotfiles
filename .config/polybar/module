@@ -1,16 +1,26 @@
-         ; vim:ft=dosini
+; vim:ft=dosini
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; top 
 ; -----------------------------------------------------------------------------
+[module/killer]
+type = custom/text
+content = 
+content-background = ${color.shade1}
+content-foreground = ${color.orange}
+content-padding = 2
+click-left = xdotool key super+shift+q &
+; -----------------------------------------------------------------------------
 [module/appfinder]
 type = custom/text
-content = 
-content-background = ${color.shade1}
-content-padding = 3
-click-left = xfce4-appfinder &
+content = 
+content-background = ${color.shade2}
+content-foreground = ${color.amber}
+content-padding = 2
+click-left = rofi -show drun -theme rofi-theme &
+click-right = rofi -show window -theme rofi-theme &
 ; -----------------------------------------------------------------------------
 [module/i3]
 type = internal/i3
@@ -24,7 +34,7 @@ show-all = true
 pin-workspaces = true
 
 ; This will split the workspace name on ':'
-; Default: falseA
+; Default: false
 strip-wsnumbers = false
 
 ; Sort the workspaces by index instead of the default
@@ -61,49 +71,51 @@ fuzzy-match = false
 format =<label-state>
 
 ; icons
-ws-icon-0 = 1:Home; 
-ws-icon-1 = 2:Browser; 
-ws-icon-2 = 3:Console; 
-ws-icon-3 = 4:Coding; 
-ws-icon-4 = 5:Document; 
-ws-icon-5 = 6:Chat; 
-ws-icon-6 = 7:Fun; 
-ws-icon-default = 
+ws-icon-0 = 1:Home;
+ws-icon-1 = 2:Browser;
+ws-icon-2 = 3:Coding;
+ws-icon-3 = 4:Document;
+ws-icon-4 = 5:Console;
+ws-icon-5 = 6:Chat;
+ws-icon-6 = 7:Git;
+ws-icon-7 = 8:Mail;
+ws-icon-8 = 9:Other;
+ws-icon-default =
 
-label-mode-background = ${color.shade2}
+label-mode-background = ${color.shade3}
 
 ; color
 label-focused = %icon%
 label-focused-underline = ${color.white}
 label-focused-padding = 2
-label-focused-background = ${color.shade2}
+label-focused-background = ${color.shade3}
 
 label-visible = %icon%
 label-visible-padding = 2
-label-visible-background = ${color.shade2}
+label-visible-background = ${color.shade3}
 
 label-unfocused = %icon%
 label-unfocused-padding = 2
-label-unfocused-background = ${color.shade2}
+label-unfocused-background = ${color.shade3}
 
 label-urgent = %icon%
 label-urgent-underline = ${color.light-green}
-label-urgent-background = ${color.shade2}
+label-urgent-background = ${color.shade3}
 label-urgent-padding = 2
 
 label-empty-foreground = ${color.cyan}
 label-empty = %icon%
 ; seperator
 label-separator = |
-label-separator-background = ${color.shade2}
+label-separator-background = ${color.shade3}
 
 ; -----------------------------------------------------------------------------
 [module/workspace-name]
 type = internal/i3
 format =<label-state>
 label-focused-padding = 2
-label-focused =  %name%
-label-focused-background = ${color.shade3}
+label-focused =  %name%
+label-focused-background = ${color.shade4}
 label-visible = 
 label-unfocused = 
 label-urgent = 
@@ -122,45 +134,65 @@ type = internal/xwindow
 ;   <label> (default)
 format = <label>
 
-format-background = ${color.shade1}
+format-background = ${color.shade3}
 format-foreground = ${color.fground}
 format-padding = 2
-
 ; Available tokens:
 ;   %title%
 ; Default: %title%
-label = %title%
-label-maxlen = 50
+label =%{A1:rofi -show window -theme rofi-theme:} %title:0:50:...%%{A}
 
 ; Used instead of label when there is no window title
 ; Available tokens:
-;   None
-label-empty = Empty
-label-empty-foreground = #707880
+;   None 
+label-empty = %{A1:rofi -show window -theme rofi-theme:}Empty%{A}
+label-empty-foreground = ${color.fground}
 
+; -----------------------------------------------------------------------------
 [module/keyboard]
-type = internal/xkeyboard
+type = custom/menu
 
-; List of indicators to ignore
-blacklist-0 = num lock
-blacklist-1 = scroll lock
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
 
-; Format
-format = <label-indicator>
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/bin/sh -c $COMMAND"
+padding = 1
+menu-0-0 = Monitor
+menu-0-0-exec = menu-open-1
+menu-0-0-background = ${color.shade7}
+menu-0-1 = Multimedia
+menu-0-1-exec = menu-open-2
+menu-0-1-background = ${color.shade7}
 
-label-indicator-on-capslock =CL 
-label-indicator-on-capslock-background = ${color.shade6}
-label-indicator-off-capslock =CL 
-label-indicator-off-capslock-background = ${color.shade6}
-label-indicator-on-numlock = c 
-label-indicator-on-numlock-background = ${color.shade6}
-label-indicator-off-numlock = d 
-label-indicator-off-numlock-background = ${color.shade6}
-label-indicator-on-scrolllock = e 
-label-indicator-on-scrolllock-background = ${color.shade6}
-label-indicator-off-scrolllock = f
-label-indicator-off-scrolllock-background = ${color.shade6}
-label-padding = 0.5
+menu-1-0 = One
+menu-1-0-exec = ~/.config/polybar/scripts/one-monitor.sh
+menu-1-0-background = ${color.shade7}
+menu-1-1 = Two
+menu-1-1-exec =  ~/.config/polybar/scripts/two-monitor.sh
+menu-1-1-background = ${color.shade7}
+
+menu-2-0 = Gimp
+menu-2-0-exec = gimp &
+menu-2-0-background = ${color.shade7}
+menu-2-1 = Scrot
+menu-2-1-exec = scrot &
+menu-2-1-background = ${color.shade7}
+
+label-open =  APP
+label-close = 
+label-close-background = ${color.shade7}
+label-open-background = ${color.shade7}
+; Optional item separator
+; Default: none
+label-separator = |
+label-separator-background = ${color.shade7}
 ; -----------------------------------------------------------------------------
 [module/alsa]
 type = internal/alsa
@@ -171,66 +203,84 @@ headphone-soundcard = default
 master-mixer = Master
 format-volume = <ramp-volume><label-volume>
 label-muted =  muted
-label-muted-background = ${color.shade5}
-format-volume-background = ${color.shade5}
-ramp-volume-0 =  
-ramp-volume-0-background = ${color.shade5}
+label-muted-background = ${color.shade6}
+format-volume-background = ${color.shade6}
+ramp-volume-0 = 
+ramp-volume-0-background = ${color.shade6}
 ramp-volume-1 =  
-ramp-volume-1-background = ${color.shade5}
+ramp-volume-1-background = ${color.shade6}
 ramp-volume-2 =  
-ramp-volume-2-background = ${color.shade5}
-ramp-headphones-0 = 
+ramp-volume-2-background = ${color.shade6}
 
-ramp-volume-background = ${color.shade5}
-label-volume-background = ${color.shade5}
+ramp-headphones-0 = 
+ramp-headphones-0-background = ${color.shade6}
+ramp-headphones-1 =  
+ramp-headphones-1-background = ${color.shade6}
+ramp-headphones-2 =  
+ramp-headphones-2-background = ${color.shade6}
+
+
+ramp-volume-background = ${color.shade6}
+label-volume-background = ${color.shade6}
 label-padding = 1
 ; -----------------------------------------------------------------------------
 [module/network-short]
 type = internal/network
 interface = ${config.interface}
-
-interval = 1
+label-disconnected =  OFF
+label-disconnected-background = ${color.shade5}
+interval = 30
 
 format-connected = <ramp-signal>
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
+ramp-signal-0 =  ON
+ramp-signal-1 =  ON
+ramp-signal-2 =  ON
+ramp-signal-3 =  ON
 
-ramp-signal-0-background = ${color.shade4}
-ramp-signal-1-background = ${color.shade4}
-ramp-signal-2-background = ${color.shade4}
-ramp-signal-3-background = ${color.shade4}
+ramp-signal-0-background = ${color.shade5}
+ramp-signal-1-background = ${color.shade5}
+ramp-signal-2-background = ${color.shade5}
+ramp-signal-3-background = ${color.shade5}
 label-padding = 1
 ; -----------------------------------------------------------------------------
-[module/notify]
-type = custom/text
-content = 
-content-background = ${color.shade3}
+[module/mail]
+type = custom/script
+interval = 300
+exec = ~/.config/polybar/scripts/info-mail.sh 
+click-left = thunderbird &
+label-background = ${color.shade4}
 label-padding = 1
-
-click-left = xdotool key control+grave &
+; -----------------------------------------------------------------------------
+; -----------------------------------------------------------------------------
+[module/notify]
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/scripts/isrunning-message.sh 
+click-left = ~/.config/polybar/scripts/isrunning-message.sh --toggle &
+label-background = ${color.shade3}
+label-padding = 1
 ; -----------------------------------------------------------------------------
 [module/date]
 type = internal/date
-interval = 1.0
+interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %Y-%m-%d%
-time = %l:%M %p
-label =  %date%  %time%
+date = %Y/%m/%d %H:%M %a
+label =  %date%
 
 format = <label>
 label-background = ${color.shade2}
 label-padding = 1
+
 ; -----------------------------------------------------------------------------
 [module/poweroff]
 type = custom/text
 content = 
 click-left = bash ~/.config/polybar/scripts/rofi-logout.sh 
-content-padding = 3
+content-padding = 2
 content-background = ${color.shade1}
+content-foreground = ${color.amber}
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
@@ -247,23 +297,23 @@ label-padding = 0.5
 [module/info-trash]
 type = custom/script
 exec = ~/.config/polybar/scripts/info-trash.sh
-interval = 10
-click-left = ~/.config/polybar/scripts/info-trash.sh --clean 
+interval = 600
+click-left = ~/.config/polybar/scripts/info-trash.sh --clean &
+click-right = pcmanfm trash:///
 label-padding = 0.5
 label-background = ${color.shade2}
 ; -----------------------------------------------------------------------------
 [module/isrunning-compton]
 type = custom/script
 exec = ~/.config/polybar/scripts/isrunning-compton.sh
-interval = 2
+interval = 5
 click-left = ~/.config/polybar/scripts/isrunning-compton.sh --toggle 
-click-right = compton-conf &
 label-padding = 0.5
 label-background = ${color.shade3}
 ; -----------------------------------------------------------------------------
 [module/backlight]
 type = custom/script
-interval = 2
+interval = 5
 exec = ~/.config/polybar/scripts/isrunning-redshift.sh
 click-left = ~/.config/polybar/scripts/isrunning-redshift.sh --toggle 
 label-background = ${color.shade4}
@@ -274,14 +324,15 @@ type = custom/script
 exec = ~/.config/polybar/scripts/updates.sh
 foregroun= ${color.fground}
 tail = true
-click-left = pamac-manager --updates 
+click-left = pamac-manager --updates &
 label-padding = 0.5
 label-background = ${color.shade5}
 ; -----------------------------------------------------------------------------
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/scripts/openweathermap-fullfeatured.sh
-interval = 3600
+click-left = google-chrome-stable http://www.weather.com.cn/weather/101270101.shtml
+interval = 10800
 label-font = 4
 label-background = ${color.shade6}
 label-padding = 0.5
@@ -289,10 +340,12 @@ label-padding = 0.5
 [module/info-kernel]
 type = custom/script
 exec = echo  $(uname -r)
-interval = 1024
+interval = 10800
 label-background = ${color.shade7}
 label-padding = 0.5
-
+click-left = variety --next &
+click-middle = variety --trash &
+click-right = variety --previous &
 ; -----------------------------------------------------------------------------
 [module/mpd]
 type = internal/mpd
@@ -301,38 +354,56 @@ host = ${config.mpd-host}
 port = ${config.mpd-port}
 
 ; Format
-format-online = <icon-prev> <toggle> <icon-next> <icon-stop> <label-song>
-format-paused = <icon-prev> <toggle> <icon-next> <icon-stop> <label-song>
+format-online =<icon-prev><toggle><icon-next>┃<bar-progress>┃<label-song>
+format-paused =<icon-prev><toggle><icon-next>┃<bar-progress>┃<label-song>
+format-offline = <label-offline>
 format-stopped = <toggle>
-format-online-background = ${color.shade1}
-format-paused-background = ${color.shade1}
-format-stopped-background = ${color.shade1}
-format-online-padding = 4
-format-paused-padding = 4
-format-stopped-padding = 4
-label-song =  %artist% - %title%
+format-online-background = ${color.shade3}
+format-paused-background = ${color.shade3}
+format-stopped-background = ${color.shade3}
+format-online-padding = 1
+format-paused-padding = 1
+format-stopped-padding = 1
 
-label-song-foreground = ${color.shade7}
+label-offline = 🎜 mpd is offline
+label-song-minlen = 30
+label-song-maxlen = 30
+label-song = %artist%-%title%
+#label-song-foreground = ${color.shade7}
 
-icon-play = 
-icon-play-foreground = ${color.shade7}
+icon-play = 
+#icon-play-foreground = ${color.shade7}
 icon-play-margin = 0
-icon-pause = 
-icon-pause-foreground = ${color.shade7}
+icon-pause = 
+#icon-pause-foreground = ${color.shade7}
 icon-pause-margin = 0
-icon-stop = 
-icon-stop-foreground = ${color.shade7}
+icon-stop = 
+#icon-stop-foreground = ${color.shade7}
 icon-stop-margin = 0
-icon-prev = 
-icon-prev-foreground = ${color.shade7}
+icon-prev = 
+#icon-prev-foreground = ${color.shade7}
 icon-prev-margin = 0
-icon-next = 
-icon-next-foreground = ${color.shade7}
+icon-next = 
+#icon-next-foreground = ${color.shade7}
 icon-next-margin = 0
 icon-repeat = 
 icon-repeat-margin = 0
 icon-random = 
 icon-random-margin = 0
+
+bar-progress-width = 15
+bar-progress-indicator = ▶
+bar-progress-fill = ─
+bar-progress-fill-font = 5
+bar-progress-empty = ┄
+bar-progress-empty-font = 5
+
+#bar-progress-indicator-foreground = ${color.shade7}
+#bar-progress-fill-foreground = ${color.shade7}
+
+bar-progress-gradient = true
+
+bar-progress-empty-foreground = ${color.shade7}
 
 toggle-on-foreground = ${color.shade1}
 toggle-off-foreground = ${color.shade1}
@@ -341,16 +412,17 @@ toggle-off-foreground = ${color.shade1}
 [module/info-publicip]
 type = custom/script
 exec = echo  $(~/.config/polybar/scripts/info-publicip.sh)
-interval = 3600
+interval = 10800
 label-background = ${color.shade7}
 label-padding = 0.5
+
 ; -----------------------------------------------------------------------------
 [module/network-detail]
 type = internal/network
 interface = ${config.interface}
-interval = 3
+interval = 10
 format-connected = <label-connected>
-label-connected =  %downspeed%  %upspeed%
+label-connected = %{A1:ksysguard:} %downspeed%  %upspeed%%{A}
 label-connected-background = ${color.shade6}
 label-connected-padding = 0.5
 
@@ -358,6 +430,7 @@ label-connected-padding = 0.5
 [module/temperature]
 type = internal/temperature
 thermal-zone = ${config.thermal-zone}
+hwmon-path = ${env:HWMON_PATH}
 base-temperature = ${config.base-temperature}
 warn-temperature = ${config.warn-temperature}
 ; Format
@@ -365,7 +438,8 @@ format = <ramp> <label>
 label-padding = 0.5
 format-warn = <label-warn>
 format-background = ${color.shade5}
-label-warn =  %temperature-c%
+label-warn = %{A1:ksysguard:}  %temperature-c% %{A}
+label = %{A1:ksysguard:}%temperature-c%%{A}
 label-background = ${color.shade5}
 ramp-0 = 
 ramp-1 = 
@@ -375,17 +449,19 @@ ramp-4 = 
 ; -----------------------------------------------------------------------------
 [module/cpu]
 type = internal/cpu
-interval = 3
+interval = 1
 format = <ramp-load> <label>
+label = %{A1:ksysguard:}%percentage%%%{A}
 format-background = ${color.shade4}
-ramp-load-0 = 
-ramp-load-1 = 
-ramp-load-2 = 
+ramp-load-0 = 
+ramp-load-1 = 
+ramp-load-2 = 
 format-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/memory]
 type = internal/memory
-interval = 3
+interval = 1
+label = %{A1:ksysguard:}%percentage_used%%%{A}
 format-padding = 0.5
 format = <ramp-used> <label>
 format-background = ${color.shade3}
@@ -398,11 +474,10 @@ type = internal/fs
 
 ; Mountpoints to display
 mount-0 = /
-mount-1 = /data
 
 ; Seconds to sleep between updates
 ; Default: 30
-interval = 30
+interval = 3600
 
 ; Display fixed precision values
 ; Default: false
@@ -443,12 +518,12 @@ label-unmounted-padding = 0.5
 ; -----------------------------------------------------------------------------
 [module/info-whoami]
 type = custom/script
-exec = echo  $(whoami)
-interval = 1024
+exec = echo  $(whoami) 
+interval = 43200
 label-padding-left= 0.5
 label-padding-right = 2
 label-background = ${color.shade1}
-
+click-left = xscreensaver-command -lock
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
 ; -----------------------------------------------------------------------------
@@ -489,6 +564,12 @@ content = "%{T3}%{T-}"
 [module/left4]
 type = custom/text
 content-background = ${color.shade5}
+content-foreground = ${color.shade4}
+content = "%{T3}%{T-}"
+
+[module/left4-end]
+type = custom/text
+content-background = ${color.bground}
 content-foreground = ${color.shade4}
 content = "%{T3}%{T-}"
 
@@ -533,6 +614,12 @@ content = "%{T3}%{T-}"
 [module/right3]
 type = custom/text
 content-background = ${color.shade4}
+content-foreground = ${color.shade3}
+content = "%{T3}%{T-}"
+
+[module/right3-end]
+type = custom/text
+content-background = ${color.bground}
 content-foreground = ${color.shade3}
 content = "%{T3}%{T-}"
 

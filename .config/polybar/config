@@ -1,7 +1,8 @@
 ; vim:ft=dosini
 [global-wm]
 include-file = $HOME/.config/polybar/colors
-include-file = $HOME/.config/polybar/top
-include-file = $HOME/.config/polybar/bottom
+include-file = $HOME/.config/polybar/left-top
+include-file = $HOME/.config/polybar/left-bottom
+include-file = $HOME/.config/polybar/right-top
 include-file = $HOME/.config/polybar/module
 include-file = $HOME/.config/polybar/module-config

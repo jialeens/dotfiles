@@ -2,17 +2,20 @@
 
 case "$1" in
     --toggle)
-        if [ "$(pgrep -x compton)" ]; then
-            pkill compton | notify-send 'Compton stopped'
+        if [ "$(pgrep -x picom)" ]; then
+            pkill picom 
+            notify-send 'Picom stopped'
         else
-            compton -b | notify-send 'Compton started'
+            picom --experimental-backends --xrender-sync-fence -b 
+            #picom -b  
+            notify-send 'Picom started'
         fi
         ;;
     *)
-        if [ "$(pgrep -x compton)" ]; then
-            echo "Compton "
+        if [ "$(pgrep -x picom)" ]; then
+            echo "Picom "
         else
-            echo "Compton "
+            echo "Picom "
         fi
         ;;
 esac

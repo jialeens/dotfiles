@@ -4,18 +4,19 @@ case "$1" in
     --toggle)
         if pgrep -x redshift > /dev/null
 		then
-			pkill redshift| notify-send 'Redshift stopped'
+			pkill redshift
+            notify-send 'RedShift stopped'
 		else
-			redshift & 
-			notify-send 'Redshift started'
+			(redshift &)
+            notify-send 'RedShift started'
 		fi
         ;;
     *)
         if pgrep -x redshift > /dev/null; 
 		then
-            echo "Redshift "
+            echo "RedShift "
         else
-            echo "Redshift "
+            echo "RedShift "
         fi
         ;;
 esac

@@ -1,0 +1,45 @@
+; vim:ft=dosini
+[bar/right-top]
+monitor = ${env:MONITOR}
+enable-ipc = true
+override-redirect = false
+width = 100%
+height = 20
+fixed-center = true
+background = ${color.bground}
+foreground = ${color.fground}
+pseudo-transparency = true
+line-size = 2
+line-color = ${color.orange}
+
+#radius = 10
+#border-top-size = 4
+#border-bottom-size = 0
+#border-right-size = 4
+#border-left-size = 4
+padding-left = 0
+padding-right = 0
+
+#dim-value = 0.8
+
+font-0 = Font Awesome 5 Free:style=Solid:pixelsize=12;2
+font-1 = Font Awesome 5 Brands:pixelsize=12;2
+font-2 = Weather Icons:style=Regular:size=12;2
+font-3 = 更纱黑体 SC:style=bold:size=8;2
+font-4 = DroidSansMono Nerd Font Mono:size=17;4
+font-5 = NotoEmoji Nerd Font Mono:size=8;2
+
+modules-left = killer left1 appfinder left2 i3 left3 workspace-name left4-end i3-mode
+modules-center =right3-end title left3-end
+modules-right = right7 keyboard right6 alsa right5 network-short right4 mail right3 notify right2 date right1 poweroff 
+#right7 keyboard right6 alsa right5 network-short right4 mail right3 notify right2 date right1 poweroff 
+
+tray-position = none
+#tray-maxsize = 16
+#tray-padding = 0
+#tray-detached = false
+#tray-transparency=true
+#tray-background = ${color.shade1}
+
+cursor-click = pointer
+#cursor-scroll = ns-resize

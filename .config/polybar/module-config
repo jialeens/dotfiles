@@ -2,7 +2,7 @@
 
 [config]
 # network interface, check by `ip link show`
-interface = enp3s0
+interface = enp5s0
 
 # when the current battery capacity excess this value,
 # the full-capacity format will be displayed.
